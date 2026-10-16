@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101010">
+  <title>Taller Automotriz</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #101010;
+      color: white;
+    }
+
+    header {
+      text-align: center;
+      padding: 25px 15px;
+      background: #080808;
+      border-bottom: 2px solid #d6a52d;
+    }
+
+    header h1 {
+      color: #e5b84b;
+      font-size: 28px;
+      margin: 0 0 10px;
+    }
+
+    header p {
+      color: #ddd;
+      margin-bottom: 0;
+    }
+
+    .contenedor {
+      max-width: 850px;
+      margin: auto;
+      padding: 20px 15px 100px;
+    }
+
+    .hero {
+      background: #181818;
+      border: 1px solid #494949;
+      border-radius: 15px;
+      padding: 12px;
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .hero img {
+      display: block;
+      width: 100%;
+      max-height: 320px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .hero h2 {
+      color: #e5b84b;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      color: #ddd;
+      line-height: 1.5;
+    }
+
+    .opcion {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #1a1a1a;
+      color: white;
+      border: 1px solid #494949;
+      border-radius: 12px;
+      padding: 18px;
+      margin: 14px 0;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .opcion:focus,
+    .opcion:hover {
+      border-color: #e5b84b;
+    }
+
+    .opcion strong {
+      display: block;
+      color: #e5b84b;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .detalle {
+      display: none;
+      background: #242424;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: -5px;
+      margin-bottom: 15px;
+      color: #eee;
+      line-height: 1.8;
+    }
+
+    .detalle.visible {
+      display: block;
+    }
+
+    .servicio {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #444;
+    }
+
+    .servicio:last-child {
+      border-bottom: none;
+    }
+
+    .precio {
+      color: #e5b84b;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .nota {
+      color: #bbb;
+      font-size: 13px;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      max-width: 500px;
+      margin: auto;
+      display: block;
+      padding: 17px;
+      background: #20c767;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 17px;
+      border-radius: 12px;
+      box-shadow: 0 3px 15px #000;
+      z-index: 10;
+    }
+
+    footer {
+      text-align: center;
+      color: #999;
+      padding: 20px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>TALLER AUTOMOTRIZ</h1>
+  <p>Calidad, cuidado y acabado profesional</p>
+</header>
+
+<main class="contenedor">
+
+  <!-- FOTO PRINCIPAL DEL AUTOMÓVIL -->
+  <section class="hero">
+    <img
+      src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80"
+      alt="Automóvil con acabado brillante"
+    >
+    <h2>¡Deja tu auto como nuevo!</h2>
+    <p>Pintura automotriz, hojalatería y pulido profesional.</p>
+  </section>
+
+  <!-- OPCIÓN 1: TODOS LOS SERVICIOS -->
+  <button class="opcion" onclick="mostrar('todos')">
+    <strong>🚘 Todos los servicios</strong>
+    Pintura automotriz + Hojalatería + Pulido
+  </button>
+
+  <div id="todos" class="detalle">
+    <p>Conoce nuestros tres servicios y elige el que necesita tu vehículo.</p>
+    <p>🎨 Pintura automotriz</p>
+    <p>🔧 Hojalatería</p>
+    <p>✨ Pulido</p>
+    <p class="nota">Los precios dependen del vehículo y del trabajo necesario.</p>
+  </div>
+
+  <!-- OPCIÓN 2: PINTURA -->
+  <button class="opcion" onclick="mostrar('pintura')">
+    <strong>🎨 Pintura automotriz</strong>
+    Renueva el color y acabado de tu vehículo.
+  </button>
+
+  <div id="pintura" class="detalle">
+    <div class="servicio">
+      <span>Pintura completa</span>
+      <span class="precio">$___ MXN</span>
+    </div>
+    <div class="servicio">
+      <span>Pintura por pieza</span>
+      <span class="precio">$___ MXN</span>
+    </div>
+    <div class="servicio">
+      <span>Retoques de pintura</span>
+      <span class="precio">$___ MXN</span>
+    </div>
+  </div>
+
+  <!-- OPCIÓN 3: HOJALATERÍA -->
+  <button class="opcion" onclick="mostrar('hojalateria')">
+    <strong>🔧 Hojalatería</strong>
+    Reparación de golpes y daños en la carrocería.
+  </button>
+
+  <div id="hojalateria" class="detalle">
+    <div class="servicio">
+      <span>Reparación de golpes</span>
+      <span class="precio">$___ MXN</span>
+    </div>
+    <div class="servicio">
+      <span>Reparación de abolladuras</span>
+      <span class="precio">$___ MXN</span>
+    </div>
+    <div class="servicio">
+      <span>Reparación de defensas</span>
+      <span class="precio">$___ MXN</span>
+    </div>
+  </div>
+
+  <!-- OPCIÓN 4: PULIDO -->
+  <button class="opcion" onclick="mostrar('pulido')">
+    <strong>✨ Pulido</strong>
+    Dale brillo y una mejor apariencia a tu auto.
+  </button>
+
+  <div id="pulido" class="detalle">
+    <div class="servicio">
+      <span>Pulido de carrocería</span>
+      <span class="precio">$___ MXN</span>
+    </div>
+    <div class="servicio">
+      <span>Rayones superficiales</span>
+      <span class="precio">$___ MXN</span>
+    </div>
+    <div class="servicio">
+      <span>Encerado y abrillantado</span>
+      <span class="precio">$___ MXN</span>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Taller Automotriz · Atención personalizada
+</footer>
+
+<!-- CAMBIA EL NÚMERO POR EL WHATSAPP DEL TALLER -->
+<a
+  class="whatsapp"
+  href="https://wa.me/524494193873?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20para%20mi%20auto"
+  target="_blank"
+  rel="noopener"
+>
+  ☎ Contactar por WhatsApp
+</a>
+
+<script>
+  function mostrar(id) {
+    document.querySelectorAll('.detalle').forEach(function(seccion) {
+      if (seccion.id !== id) {
+        seccion.classList.remove('visible');
+      }
+    });
+
+    document.getElementById(id).classList.toggle('visible');
+  }
+</script>
+
+</body>
+</html>
